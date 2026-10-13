@@ -1,0 +1,2552 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Studio — Static Mockup</title>
+    <style>
+      :root {
+        /* color.semantic.light */
+        --color-static-white: #ffffff;
+        --color-static-black: #000000;
+        --color-primary-normal: #0066ff;
+        --color-primary-strong: #005eeb;
+        --color-primary-heavy: #0054d1;
+        --color-label-normal: #171719;
+        --color-label-strong: #000000;
+        --color-label-neutral: #2e2f33e0;
+        --color-label-alternative: #37383c9c;
+        --color-label-assistive: #37383c47;
+        --color-label-disable: #37383c29;
+        --color-background-normal: #ffffff;
+        --color-background-alternative: #f7f7f8;
+        --color-background-elevated: #ffffff;
+        --color-background-negative: #ff424214;
+        --color-background-cautionary: #ff920014;
+        --color-background-positive: #00bf4014;
+        --color-interaction-inactive: #989ba2;
+        --color-interaction-disable: #f4f4f5;
+        --color-line-normal: #70737c38;
+        --color-line-neutral: #70737c29;
+        --color-line-alternative: #70737c14;
+        --color-line-solid-normal: #e1e2e4;
+        --color-line-solid-neutral: #eaebec;
+        --color-line-solid-alternative: #f4f4f5;
+        --color-line-primary: #0066ff47;
+        --color-status-positive: #00bf40;
+        --color-status-cautionary: #ff9200;
+        --color-status-negative: #ff4242;
+        --color-fill-normal: #70737c14;
+        --color-fill-strong: #70737c29;
+        --color-fill-alternative: #70737c0d;
+        --color-material-dimmer: #17171985;
+        --color-accent-red-orange: #ff5e00;
+        --color-accent-lime: #58cf04;
+        --color-accent-cyan: #00bdde;
+        --color-accent-violet: #6541f2;
+        --color-accent-pink: #f553da;
+
+        /* color.atomic — supporting neutral and blue scales */
+        --color-atomic-blue-10: #001536;
+        --color-atomic-blue-20: #002966;
+        --color-atomic-blue-30: #003e9c;
+        --color-atomic-blue-90: #c9defe;
+        --color-atomic-blue-95: #eaf2fe;
+        --color-atomic-blue-99: #f7fbff;
+        --color-atomic-orange-20: #663a00;
+        --color-atomic-orange-30: #9c5800;
+        --color-atomic-orange-39: #d17600;
+        --color-atomic-orange-50: #ff9200;
+        --color-atomic-orange-60: #ffa938;
+        --color-atomic-orange-95: #fef4e6;
+        --color-atomic-orange-99: #fffcf7;
+
+        /* spacing */
+        --space-0: 0px;
+        --space-1: 1px;
+        --space-2: 2px;
+        --space-4: 4px;
+        --space-6: 6px;
+        --space-8: 8px;
+        --space-10: 10px;
+        --space-12: 12px;
+        --space-14: 14px;
+        --space-16: 16px;
+        --space-20: 20px;
+        --space-24: 24px;
+        --space-32: 32px;
+        --space-40: 40px;
+        --space-48: 48px;
+        --space-56: 56px;
+        --space-64: 64px;
+        --space-72: 72px;
+        --space-80: 80px;
+
+        /* radius */
+        --radius-0: 0px;
+        --radius-3: 3px;
+        --radius-5: 5px;
+        --radius-6: 6px;
+        --radius-8: 8px;
+        --radius-10: 10px;
+        --radius-12: 12px;
+        --radius-16: 16px;
+        --radius-20: 20px;
+        --radius-full: 9999px;
+
+        /* typography */
+        --type-display2-size: 2.5rem;
+        --type-display2-line: 3.25rem;
+        --type-display2-tracking: -0.0282em;
+        --type-title1-size: 2rem;
+        --type-title1-line: 2.75rem;
+        --type-title1-tracking: -0.0253em;
+        --type-title2-size: 1.75rem;
+        --type-title2-line: 2.375rem;
+        --type-title2-tracking: -0.0236em;
+        --type-title3-size: 1.5rem;
+        --type-title3-line: 2rem;
+        --type-title3-tracking: -0.023em;
+        --type-heading1-size: 1.375rem;
+        --type-heading1-line: 1.875rem;
+        --type-heading1-tracking: -0.0194em;
+        --type-heading2-size: 1.25rem;
+        --type-heading2-line: 1.75rem;
+        --type-heading2-tracking: -0.012em;
+        --type-headline1-size: 1.125rem;
+        --type-headline1-line: 1.625rem;
+        --type-headline1-tracking: -0.002em;
+        --type-body1-size: 1rem;
+        --type-body1-line: 1.5rem;
+        --type-body1-tracking: 0.0057em;
+        --type-body2-size: 0.9375rem;
+        --type-body2-line: 1.375rem;
+        --type-body2-tracking: 0.0096em;
+        --type-label1-size: 0.875rem;
+        --type-label1-line: 1.25rem;
+        --type-label1-tracking: 0.0145em;
+        --type-label2-size: 0.8125rem;
+        --type-label2-line: 1.125rem;
+        --type-label2-tracking: 0.0194em;
+        --type-caption1-size: 0.75rem;
+        --type-caption1-line: 1rem;
+        --type-caption1-tracking: 0.0252em;
+        --weight-regular: 400;
+        --weight-medium: 500;
+        --weight-bold: 600;
+        --weight-title-bold: 700;
+
+        /* shadow, breakpoint, layer */
+        --shadow-small: 0px 2px 4px -2px #1717170f, 0px 4px 6px -1px #1717170f;
+        --shadow-medium: 0px 4px 6px -2px #17171712, 0px 10px 15px -3px #17171712;
+        --shadow-large: 0px 6px 10px -4px #17171714, 0px 16px 24px -6px #17171714;
+        --breakpoint-md: 992px;
+        --breakpoint-lg: 1200px;
+        --z-modal: 1300;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: var(--space-0);
+        color: var(--color-label-normal);
+        background: var(--color-background-alternative);
+        font-family:
+          Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: var(--type-body1-size);
+        line-height: var(--type-body1-line);
+        letter-spacing: var(--type-body1-tracking);
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        color: inherit;
+        font: inherit;
+      }
+
+      button,
+      a,
+      select {
+        cursor: pointer;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      svg {
+        display: block;
+      }
+
+      .workspace {
+        display: grid;
+        gap: var(--space-64);
+        padding: var(--space-40);
+      }
+
+      .workspace-intro,
+      .artboard-wrap {
+        width: min(100%, var(--breakpoint-lg));
+        margin-inline: auto;
+      }
+
+      .workspace-intro {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: var(--space-24);
+      }
+
+      .workspace-intro h1,
+      .workspace-intro p,
+      .board-meta h2,
+      .board-meta p,
+      .page-title h1,
+      .page-title p,
+      .hero-copy h1,
+      .hero-copy p,
+      .section-heading h2,
+      .section-heading p,
+      .card-copy h3,
+      .card-copy p,
+      .detail-copy h1,
+      .detail-copy p,
+      .state-card h3,
+      .state-card p,
+      .modal-card h2,
+      .modal-card p {
+        margin: var(--space-0);
+      }
+
+      .workspace-intro h1 {
+        font-size: var(--type-title1-size);
+        line-height: var(--type-title1-line);
+        letter-spacing: var(--type-title1-tracking);
+      }
+
+      .workspace-intro p,
+      .board-meta p,
+      .page-title p,
+      .section-heading p,
+      .detail-copy p,
+      .state-card p,
+      .modal-card p {
+        color: var(--color-label-alternative);
+      }
+
+      .jump-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: var(--space-8);
+      }
+
+      .jump-links a {
+        padding: var(--space-8) var(--space-12);
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-radius: var(--radius-full);
+        background: var(--color-background-normal);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        letter-spacing: var(--type-label2-tracking);
+        font-weight: var(--weight-medium);
+      }
+
+      .artboard-wrap {
+        display: grid;
+        gap: var(--space-12);
+        scroll-margin-top: var(--space-24);
+      }
+
+      .board-meta {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: var(--space-16);
+      }
+
+      .board-meta h2 {
+        font-size: var(--type-heading2-size);
+        line-height: var(--type-heading2-line);
+        letter-spacing: var(--type-heading2-tracking);
+      }
+
+      .board-index,
+      .eyebrow {
+        color: var(--color-primary-normal);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        letter-spacing: var(--type-label2-tracking);
+        font-weight: var(--weight-bold);
+      }
+
+      .artboard {
+        overflow: hidden;
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-20);
+        background: var(--color-background-normal);
+        box-shadow: var(--shadow-large);
+      }
+
+      .container {
+        width: min(calc(100% - var(--space-64)), var(--breakpoint-md));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        border-bottom: var(--space-1) solid var(--color-line-solid-neutral);
+        background: var(--color-background-normal);
+      }
+
+      .header-inner {
+        display: flex;
+        min-height: var(--space-72);
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-24);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-10);
+        color: var(--color-label-strong);
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+        letter-spacing: var(--type-headline1-tracking);
+        font-weight: var(--weight-bold);
+      }
+
+      .brand-mark {
+        display: grid;
+        width: var(--space-40);
+        height: var(--space-40);
+        place-items: center;
+        border-radius: var(--radius-12);
+        color: var(--color-static-white);
+        background: var(--color-primary-normal);
+      }
+
+      .brand-mark svg,
+      .icon svg {
+        width: var(--space-20);
+        height: var(--space-20);
+      }
+
+      .main-nav,
+      .header-actions,
+      .button-row,
+      .inline-meta,
+      .filter-actions,
+      .pagination,
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: var(--space-8);
+      }
+
+      .main-nav a {
+        padding: var(--space-10) var(--space-12);
+        border-radius: var(--radius-8);
+        color: var(--color-label-alternative);
+        font-size: var(--type-label1-size);
+        line-height: var(--type-label1-line);
+        letter-spacing: var(--type-label1-tracking);
+        font-weight: var(--weight-medium);
+      }
+
+      .main-nav a[aria-current="page"] {
+        color: var(--color-primary-normal);
+        background: var(--color-fill-normal);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: var(--space-48);
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-8);
+        padding-inline: var(--space-20);
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-radius: var(--radius-12);
+        background: var(--color-background-normal);
+        font-size: var(--type-label1-size);
+        line-height: var(--type-label1-line);
+        letter-spacing: var(--type-label1-tracking);
+        font-weight: var(--weight-bold);
+      }
+
+      .button.primary {
+        border-color: var(--color-primary-normal);
+        color: var(--color-static-white);
+        background: var(--color-primary-normal);
+      }
+
+      .button.danger {
+        border-color: var(--color-line-solid-normal);
+        color: var(--color-status-negative);
+        background: var(--color-background-normal);
+      }
+
+      .button.ghost {
+        border-color: var(--color-line-alternative);
+        background: var(--color-fill-alternative);
+      }
+
+      .button.small {
+        min-height: var(--space-40);
+        padding-inline: var(--space-16);
+      }
+
+      .icon-button,
+      .page-button {
+        display: grid;
+        width: var(--space-40);
+        height: var(--space-40);
+        place-items: center;
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-radius: var(--radius-10);
+        background: var(--color-background-normal);
+      }
+
+      .page-button.active {
+        border-color: var(--color-primary-normal);
+        color: var(--color-static-white);
+        background: var(--color-primary-normal);
+      }
+
+      .site-footer {
+        border-top: var(--space-1) solid var(--color-line-solid-neutral);
+        background: var(--color-background-alternative);
+      }
+
+      .footer-inner {
+        display: flex;
+        min-height: var(--space-80);
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-24);
+        color: var(--color-label-alternative);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        letter-spacing: var(--type-label2-tracking);
+      }
+
+      .layout-hero {
+        padding-block: var(--space-72);
+        background: var(--color-background-alternative);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        align-items: center;
+        gap: var(--space-56);
+      }
+
+      .hero-copy {
+        display: grid;
+        gap: var(--space-20);
+      }
+
+      .hero-copy h1 {
+        max-width: calc(var(--space-80) * 7);
+        color: var(--color-label-strong);
+        font-size: var(--type-display2-size);
+        line-height: var(--type-display2-line);
+        letter-spacing: var(--type-display2-tracking);
+      }
+
+      .hero-copy p {
+        max-width: calc(var(--space-80) * 6);
+        color: var(--color-label-alternative);
+        font-size: var(--type-body1-size);
+        line-height: var(--type-body1-line);
+        letter-spacing: var(--type-body1-tracking);
+      }
+
+      .hero-panel {
+        display: grid;
+        gap: var(--space-24);
+        padding: var(--space-24);
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-radius: var(--radius-20);
+        background: var(--color-background-elevated);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .panel-heading {
+        display: grid;
+        gap: var(--space-8);
+      }
+
+      .panel-heading strong {
+        font-size: var(--type-heading1-size);
+        line-height: var(--type-heading1-line);
+        letter-spacing: var(--type-heading1-tracking);
+      }
+
+      .panel-heading p {
+        margin: var(--space-0);
+        color: var(--color-label-alternative);
+        font-size: var(--type-body2-size);
+        line-height: var(--type-body2-line);
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+      }
+
+      .stat {
+        display: grid;
+        gap: var(--space-4);
+        padding: var(--space-12);
+        border-radius: var(--radius-12);
+        background: var(--color-background-alternative);
+      }
+
+      .stat strong {
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+      }
+
+      .stat span {
+        color: var(--color-label-alternative);
+        font-size: var(--type-caption1-size);
+        line-height: var(--type-caption1-line);
+      }
+
+      .layout-features {
+        padding-block: var(--space-56);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-16);
+      }
+
+      .feature-card {
+        display: grid;
+        gap: var(--space-12);
+        padding: var(--space-24);
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        display: grid;
+        width: var(--space-48);
+        height: var(--space-48);
+        place-items: center;
+        border-radius: var(--radius-12);
+        color: var(--color-primary-normal);
+        background: var(--color-fill-normal);
+      }
+
+      .feature-card strong {
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+      }
+
+      .feature-card p {
+        margin: var(--space-0);
+        color: var(--color-label-alternative);
+        font-size: var(--type-body2-size);
+        line-height: var(--type-body2-line);
+      }
+
+      .screen-main {
+        min-height: calc(var(--space-80) * 8);
+        padding-block: var(--space-48) var(--space-64);
+      }
+
+      .page-title,
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: var(--space-24);
+      }
+
+      .page-title h1,
+      .detail-copy h1 {
+        font-size: var(--type-title1-size);
+        line-height: var(--type-title1-line);
+        letter-spacing: var(--type-title1-tracking);
+      }
+
+      .filter-panel {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr auto;
+        gap: var(--space-12);
+        margin-top: var(--space-32);
+        padding: var(--space-20);
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+        background: var(--color-background-alternative);
+      }
+
+      .field,
+      .form-field {
+        display: grid;
+        gap: var(--space-8);
+      }
+
+      .field label,
+      .form-field label,
+      .field-label {
+        color: var(--color-label-neutral);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        letter-spacing: var(--type-label2-tracking);
+        font-weight: var(--weight-bold);
+      }
+
+      .input-shell,
+      .select-shell,
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: var(--space-48);
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-radius: var(--radius-12);
+        outline: none;
+        background: var(--color-background-normal);
+      }
+
+      input,
+      select,
+      textarea {
+        padding-inline: var(--space-16);
+      }
+
+      textarea {
+        min-height: calc(var(--space-80) + var(--space-40));
+        padding-block: var(--space-14);
+        resize: none;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: var(--color-label-assistive);
+      }
+
+      .input-with-icon {
+        position: relative;
+      }
+
+      .input-with-icon svg {
+        position: absolute;
+        top: var(--space-14);
+        left: var(--space-16);
+        width: var(--space-20);
+        height: var(--space-20);
+        color: var(--color-label-alternative);
+      }
+
+      .input-with-icon input {
+        padding-left: var(--space-48);
+      }
+
+      .category-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-8);
+        margin-top: var(--space-16);
+      }
+
+      .chip,
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-6);
+        border-radius: var(--radius-full);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        letter-spacing: var(--type-label2-tracking);
+        font-weight: var(--weight-medium);
+      }
+
+      .chip {
+        min-height: var(--space-40);
+        padding-inline: var(--space-16);
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        background: var(--color-background-normal);
+      }
+
+      .chip.active {
+        border-color: var(--color-primary-normal);
+        color: var(--color-primary-normal);
+        background: var(--color-fill-normal);
+      }
+
+      .badge {
+        padding: var(--space-6) var(--space-10);
+        color: var(--color-label-neutral);
+        background: var(--color-fill-normal);
+      }
+
+      .badge.positive {
+        color: var(--color-status-positive);
+        background: var(--color-background-positive);
+      }
+
+      .badge.negative {
+        color: var(--color-status-negative);
+        background: var(--color-background-negative);
+      }
+
+      .section-heading {
+        margin-top: var(--space-40);
+        margin-bottom: var(--space-16);
+      }
+
+      .section-heading h2 {
+        font-size: var(--type-heading2-size);
+        line-height: var(--type-heading2-line);
+        letter-spacing: var(--type-heading2-tracking);
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-16);
+      }
+
+      .menu-card {
+        overflow: hidden;
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+        background: var(--color-background-elevated);
+        box-shadow: var(--shadow-small);
+      }
+
+      .card-copy {
+        display: grid;
+        min-height: calc(var(--space-80) * 2);
+        align-content: space-between;
+        gap: var(--space-16);
+        padding: var(--space-24);
+      }
+
+      .card-copy h3 {
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+        letter-spacing: var(--type-headline1-tracking);
+      }
+
+      .card-copy p {
+        color: var(--color-label-alternative);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+      }
+
+      .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-12);
+      }
+
+      .price {
+        color: var(--color-label-strong);
+        font-weight: var(--weight-bold);
+      }
+
+      .pagination {
+        justify-content: center;
+        margin-top: var(--space-32);
+      }
+
+      .detail-stage {
+        position: relative;
+        min-height: calc(var(--space-80) * 8);
+      }
+
+      .detail-content {
+        padding-block: var(--space-32) var(--space-64);
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: var(--space-8);
+        margin-bottom: var(--space-24);
+        color: var(--color-label-alternative);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: var(--space-32);
+      }
+
+      .detail-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-20);
+      }
+
+      .detail-summary {
+        align-self: start;
+        padding: var(--space-24);
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+        background: var(--color-background-alternative);
+      }
+
+      .detail-summary h2 {
+        margin: var(--space-0) var(--space-0) var(--space-8);
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+        letter-spacing: var(--type-headline1-tracking);
+      }
+
+      .detail-summary > p {
+        margin: var(--space-0) var(--space-0) var(--space-20);
+        color: var(--color-label-alternative);
+        font-size: var(--type-body2-size);
+        line-height: var(--type-body2-line);
+      }
+
+      .detail-list {
+        display: grid;
+        gap: var(--space-0);
+        margin: var(--space-0);
+        border-top: var(--space-1) solid var(--color-line-solid-neutral);
+      }
+
+      .detail-list div {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-16);
+        padding-block: var(--space-16);
+        border-bottom: var(--space-1) solid var(--color-line-solid-neutral);
+      }
+
+      .detail-list dt {
+        color: var(--color-label-alternative);
+      }
+
+      .detail-list dd {
+        margin: var(--space-0);
+        font-weight: var(--weight-medium);
+      }
+
+      .confirm-layer {
+        position: absolute;
+        z-index: var(--z-modal);
+        inset: var(--space-0);
+        display: grid;
+        place-items: center;
+        padding: var(--space-32);
+        background: var(--color-material-dimmer);
+      }
+
+      .modal-card {
+        display: grid;
+        width: min(100%, calc(var(--space-80) * 5));
+        gap: var(--space-20);
+        padding: var(--space-32);
+        border-radius: var(--radius-20);
+        background: var(--color-background-elevated);
+        box-shadow: var(--shadow-large);
+      }
+
+      .modal-card h2 {
+        font-size: var(--type-heading1-size);
+        line-height: var(--type-heading1-line);
+        letter-spacing: var(--type-heading1-tracking);
+      }
+
+      .modal-card .button-row {
+        justify-content: flex-end;
+      }
+
+      .form-layout {
+        display: grid;
+        grid-template-columns: 5fr 3fr;
+        gap: var(--space-32);
+        margin-top: var(--space-32);
+      }
+
+      .form-card,
+      .preview-card {
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+        background: var(--color-background-elevated);
+      }
+
+      .form-card {
+        display: grid;
+        gap: var(--space-24);
+        padding: var(--space-32);
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+      }
+
+      .required {
+        color: var(--color-status-negative);
+      }
+
+      .form-field.invalid input {
+        border-color: var(--color-status-negative);
+      }
+
+      .field-message {
+        color: var(--color-label-alternative);
+        font-size: var(--type-caption1-size);
+        line-height: var(--type-caption1-line);
+      }
+
+      .field-message.error {
+        color: var(--color-status-negative);
+      }
+
+      .segmented {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        padding: var(--space-4);
+        border-radius: var(--radius-12);
+        background: var(--color-interaction-disable);
+      }
+
+      .segment {
+        min-height: var(--space-40);
+        border: none;
+        border-radius: var(--radius-8);
+        background: var(--color-fill-alternative);
+        font-size: var(--type-label1-size);
+        line-height: var(--type-label1-line);
+        font-weight: var(--weight-medium);
+      }
+
+      .segment.active {
+        color: var(--color-primary-normal);
+        background: var(--color-background-normal);
+        box-shadow: var(--shadow-small);
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--space-8);
+        padding-top: var(--space-8);
+        border-top: var(--space-1) solid var(--color-line-solid-neutral);
+      }
+
+      .preview-card {
+        align-self: start;
+        overflow: hidden;
+      }
+
+      .preview-label {
+        padding: var(--space-16) var(--space-20);
+        border-bottom: var(--space-1) solid var(--color-line-solid-neutral);
+        color: var(--color-label-alternative);
+        background: var(--color-background-alternative);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+        font-weight: var(--weight-bold);
+      }
+
+      .states-main {
+        padding-block: var(--space-48) var(--space-64);
+        background: var(--color-background-alternative);
+      }
+
+      .state-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-16);
+        margin-top: var(--space-32);
+      }
+
+      .state-card {
+        display: flex;
+        min-height: calc(var(--space-80) * 4);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-16);
+        padding: var(--space-32);
+        border: var(--space-1) solid var(--color-line-solid-neutral);
+        border-radius: var(--radius-16);
+        text-align: center;
+        background: var(--color-background-normal);
+      }
+
+      .state-card h3 {
+        font-size: var(--type-headline1-size);
+        line-height: var(--type-headline1-line);
+        letter-spacing: var(--type-headline1-tracking);
+      }
+
+      .state-card.error-state .state-icon {
+        color: var(--color-status-negative);
+        background: var(--color-background-negative);
+      }
+
+      .skeleton-card {
+        align-items: stretch;
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .skeleton {
+        overflow: hidden;
+        position: relative;
+        border-radius: var(--radius-8);
+        background: var(--color-fill-normal);
+      }
+
+      .skeleton::after {
+        position: absolute;
+        inset: var(--space-0);
+        background: linear-gradient(
+          90deg,
+          var(--color-fill-alternative),
+          var(--color-fill-strong),
+          var(--color-fill-alternative)
+        );
+        content: "";
+      }
+
+      .skeleton.line {
+        min-height: var(--space-16);
+      }
+
+      .skeleton.line.short {
+        width: calc(var(--space-80) * 2);
+      }
+
+      .skeleton-row {
+        display: grid;
+        gap: var(--space-12);
+      }
+
+      .token-note {
+        display: flex;
+        align-items: center;
+        gap: var(--space-8);
+        padding: var(--space-12) var(--space-16);
+        border-radius: var(--radius-12);
+        color: var(--color-label-neutral);
+        background: var(--color-fill-normal);
+        font-size: var(--type-label2-size);
+        line-height: var(--type-label2-line);
+      }
+
+      /* Brand mood: royal blue field, gold accents, white typography. */
+      body {
+        background: var(--color-atomic-blue-30);
+      }
+
+      .workspace-intro,
+      .board-meta {
+        color: var(--color-static-white);
+      }
+
+      .workspace-intro p,
+      .board-meta p {
+        color: var(--color-atomic-blue-90);
+      }
+
+      .workspace-intro .eyebrow,
+      .board-index {
+        color: var(--color-atomic-orange-60);
+      }
+
+      .jump-links a {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-20);
+      }
+
+      .artboard {
+        border-color: var(--color-atomic-blue-30);
+      }
+
+      .site-header {
+        border-bottom-color: var(--color-atomic-blue-20);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .brand {
+        color: var(--color-static-white);
+      }
+
+      .brand-mark {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .main-nav a {
+        color: var(--color-atomic-blue-90);
+      }
+
+      .main-nav a[aria-current="page"] {
+        color: var(--color-atomic-blue-10);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .site-header .button,
+      .site-header .icon-button {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-20);
+      }
+
+      .button.primary {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-10);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .layout-hero {
+        background: var(--color-atomic-blue-30);
+      }
+
+      .hero-copy h1 {
+        color: var(--color-static-white);
+      }
+
+      .hero-copy p {
+        color: var(--color-atomic-blue-90);
+      }
+
+      .hero-copy .eyebrow {
+        color: var(--color-atomic-orange-60);
+      }
+
+      .hero-copy .button:not(.primary) {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-20);
+      }
+
+      .hero-panel {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-20);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel .eyebrow {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .panel-heading p {
+        color: var(--color-label-alternative);
+      }
+
+      .stat {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-blue-95);
+      }
+
+      .stat span {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .feature-card {
+        border-top: var(--space-6) solid var(--color-atomic-orange-60);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .site-footer {
+        border-top-color: var(--color-atomic-blue-30);
+        color: var(--color-atomic-blue-90);
+        background: var(--color-atomic-blue-20);
+      }
+
+      .footer-inner {
+        color: var(--color-atomic-blue-90);
+      }
+
+      .screen-main {
+        background: var(--color-atomic-blue-99);
+      }
+
+      .filter-panel {
+        border-color: var(--color-atomic-blue-90);
+        background: var(--color-atomic-blue-95);
+      }
+
+      .chip.active {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-blue-95);
+      }
+
+      .menu-card {
+        border-top: var(--space-6) solid var(--color-atomic-orange-60);
+      }
+
+      .menu-card:nth-child(even) {
+        border-top-color: var(--color-atomic-blue-30);
+      }
+
+      .menu-card a,
+      .price {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .badge:not(.positive):not(.negative) {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-blue-95);
+      }
+
+      .page-button.active {
+        border-color: var(--color-atomic-blue-20);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-20);
+      }
+
+      .detail-stage,
+      .detail-content {
+        background: var(--color-atomic-blue-99);
+      }
+
+      .detail-summary {
+        border-color: var(--color-atomic-blue-90);
+        background: var(--color-atomic-blue-95);
+      }
+
+      .modal-card {
+        border-top: var(--space-6) solid var(--color-atomic-orange-60);
+      }
+
+      .form-card,
+      .preview-card {
+        border-color: var(--color-atomic-blue-90);
+      }
+
+      .preview-label {
+        border-bottom-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .token-note {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      /* Final Blue Bottle theme overrides. */
+      body {
+        background: var(--color-atomic-orange-99);
+      }
+
+      .workspace-intro .eyebrow,
+      .board-index,
+      .hero-copy .eyebrow {
+        color: var(--color-accent-cyan);
+      }
+
+      .jump-links a {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .artboard {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        box-shadow: none;
+      }
+
+      .site-header {
+        border-bottom-color: var(--color-line-solid-neutral);
+        background: var(--color-static-white);
+      }
+
+      .brand {
+        color: var(--color-label-normal);
+      }
+
+      .brand-mark {
+        border-radius: var(--radius-3);
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .main-nav a {
+        border-bottom: var(--space-2) solid var(--color-static-white);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .main-nav a[aria-current="page"] {
+        border-bottom-color: var(--color-accent-cyan);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .button,
+      .icon-button,
+      .page-button,
+      input,
+      select,
+      textarea {
+        border-radius: var(--radius-0);
+      }
+
+      .site-header .button,
+      .site-header .icon-button {
+        border-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .button.primary,
+      .site-header .button.primary {
+        border-color: var(--color-accent-cyan);
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .layout-hero {
+        background: var(--color-atomic-orange-99);
+      }
+
+      .hero-copy h1 {
+        color: var(--color-label-normal);
+      }
+
+      .hero-copy .button:not(.primary) {
+        border-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel {
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-left: var(--space-6) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+        box-shadow: none;
+      }
+
+      .hero-panel .eyebrow {
+        color: var(--color-accent-cyan);
+      }
+
+      .panel-heading p,
+      .stat span {
+        color: var(--color-label-alternative);
+      }
+
+      .stat {
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-background-alternative);
+      }
+
+      .feature-card {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        border-radius: var(--radius-3);
+        color: var(--color-accent-cyan);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .site-footer {
+        border-top-color: var(--color-label-normal);
+        color: var(--color-static-white);
+        background: var(--color-label-normal);
+      }
+
+      .footer-inner {
+        color: var(--color-static-white);
+      }
+
+      .filter-panel,
+      .detail-summary,
+      .states-main .state-card {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        background: var(--color-background-alternative);
+      }
+
+      .chip,
+      .chip.active {
+        border-radius: var(--radius-0);
+      }
+
+      .chip.active {
+        border-color: var(--color-accent-cyan);
+        color: var(--color-label-normal);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .menu-card,
+      .menu-card:nth-child(even) {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+        box-shadow: none;
+      }
+
+      .menu-card a,
+      .price {
+        color: var(--color-label-normal);
+      }
+
+      .preview-label {
+        border-bottom-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-background-alternative);
+      }
+
+      .token-note {
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .segment,
+      .segment.active,
+      .segmented {
+        border-radius: var(--radius-0);
+      }
+
+      .segment.active {
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .state-card,
+      .state-card.error-state {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+      }
+
+      .state-card.error-state .state-icon {
+        color: var(--color-status-negative);
+        background: var(--color-background-negative);
+      }
+
+      .skeleton {
+        background: var(--color-line-solid-alternative);
+      }
+
+      .skeleton::after {
+        background: linear-gradient(
+          90deg,
+          var(--color-background-alternative),
+          var(--color-line-solid-normal),
+          var(--color-background-alternative)
+        );
+      }
+
+      /* Blue Bottle-inspired variation: warm white, ink black, cyan accents. */
+      body {
+        background: var(--color-atomic-orange-99);
+      }
+
+      .workspace {
+        gap: var(--space-80);
+        padding: var(--space-56);
+      }
+
+      .workspace-intro,
+      .board-meta {
+        color: var(--color-label-normal);
+      }
+
+      .workspace-intro p,
+      .board-meta p {
+        color: var(--color-label-alternative);
+      }
+
+      .workspace-intro .eyebrow,
+      .board-index,
+      .hero-copy .eyebrow {
+        color: var(--color-accent-cyan);
+      }
+
+      .jump-links a {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .artboard {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        background: var(--color-static-white);
+        box-shadow: none;
+      }
+
+      .site-header {
+        border-bottom-color: var(--color-line-solid-neutral);
+        background: var(--color-static-white);
+      }
+
+      .header-inner {
+        min-height: var(--space-80);
+      }
+
+      .brand {
+        color: var(--color-label-normal);
+      }
+
+      .brand-mark {
+        border-radius: var(--radius-3);
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .main-nav a {
+        border-bottom: var(--space-2) solid var(--color-static-white);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .main-nav a[aria-current="page"] {
+        border-bottom-color: var(--color-accent-cyan);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .button,
+      .icon-button,
+      .page-button,
+      input,
+      select,
+      textarea {
+        border-radius: var(--radius-0);
+      }
+
+      .site-header .button,
+      .site-header .icon-button {
+        border-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .button.primary,
+      .site-header .button.primary {
+        border-color: var(--color-accent-cyan);
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .layout-hero {
+        padding-block: var(--space-80);
+        background: var(--color-atomic-orange-99);
+      }
+
+      .hero-copy h1 {
+        color: var(--color-label-normal);
+        font-size: var(--type-title1-size);
+        line-height: var(--type-title1-line);
+        letter-spacing: var(--type-title1-tracking);
+        font-weight: var(--weight-medium);
+      }
+
+      .hero-copy p {
+        color: var(--color-label-alternative);
+      }
+
+      .hero-copy .button:not(.primary) {
+        border-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel {
+        border: var(--space-1) solid var(--color-line-solid-normal);
+        border-left: var(--space-6) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+        box-shadow: none;
+      }
+
+      .hero-panel .eyebrow {
+        color: var(--color-accent-cyan);
+      }
+
+      .panel-heading p,
+      .stat span {
+        color: var(--color-label-alternative);
+      }
+
+      .stat {
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-background-alternative);
+      }
+
+      .layout-features,
+      .screen-main,
+      .detail-stage,
+      .detail-content,
+      .states-main {
+        background: var(--color-static-white);
+      }
+
+      .feature-card {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        border-radius: var(--radius-3);
+        color: var(--color-accent-cyan);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .site-footer {
+        border-top-color: var(--color-label-normal);
+        color: var(--color-static-white);
+        background: var(--color-label-normal);
+      }
+
+      .footer-inner {
+        color: var(--color-static-white);
+      }
+
+      .filter-panel,
+      .detail-summary,
+      .states-main .state-card {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+        background: var(--color-background-alternative);
+      }
+
+      .chip {
+        border-radius: var(--radius-0);
+      }
+
+      .chip.active {
+        border-color: var(--color-accent-cyan);
+        color: var(--color-label-normal);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .menu-card,
+      .menu-card:nth-child(even) {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+        box-shadow: none;
+      }
+
+      .menu-card a,
+      .price {
+        color: var(--color-label-normal);
+      }
+
+      .badge,
+      .badge:not(.positive):not(.negative) {
+        border-radius: var(--radius-3);
+        color: var(--color-label-normal);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .page-button.active {
+        border-color: var(--color-accent-cyan);
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .modal-card {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+      }
+
+      .form-card,
+      .preview-card {
+        border-color: var(--color-line-solid-normal);
+        border-radius: var(--radius-0);
+      }
+
+      .preview-label {
+        border-bottom-color: var(--color-line-solid-normal);
+        color: var(--color-label-normal);
+        background: var(--color-background-alternative);
+      }
+
+      .token-note {
+        border-radius: var(--radius-0);
+        color: var(--color-label-normal);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .segmented {
+        border-radius: var(--radius-0);
+      }
+
+      .segment,
+      .segment.active {
+        border-radius: var(--radius-0);
+      }
+
+      .segment.active {
+        color: var(--color-static-white);
+        background: var(--color-accent-cyan);
+      }
+
+      .state-card,
+      .state-card.error-state {
+        border-top: var(--space-2) solid var(--color-accent-cyan);
+        border-radius: var(--radius-0);
+      }
+
+      .state-card.error-state .state-icon {
+        color: var(--color-status-negative);
+        background: var(--color-background-negative);
+      }
+
+      .skeleton {
+        background: var(--color-line-solid-alternative);
+      }
+
+      .skeleton::after {
+        background: linear-gradient(
+          90deg,
+          var(--color-background-alternative),
+          var(--color-line-solid-normal),
+          var(--color-background-alternative)
+        );
+      }
+
+      .segment.active {
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .states-main {
+        background: var(--color-atomic-blue-99);
+      }
+
+      .state-card {
+        border-top: var(--space-6) solid var(--color-atomic-orange-60);
+      }
+
+      .state-card.error-state {
+        border-top-color: var(--color-status-negative);
+      }
+
+      .skeleton {
+        background: var(--color-atomic-blue-95);
+      }
+
+      .skeleton::after {
+        background: linear-gradient(
+          90deg,
+          var(--color-atomic-blue-99),
+          var(--color-atomic-blue-90),
+          var(--color-atomic-blue-99)
+        );
+      }
+
+      /* White-canvas variation: blue and gold are accents, not the base. */
+      body {
+        background: var(--color-static-white);
+      }
+
+      .workspace-intro,
+      .board-meta {
+        color: var(--color-label-strong);
+      }
+
+      .workspace-intro p,
+      .board-meta p {
+        color: var(--color-label-alternative);
+      }
+
+      .workspace-intro .eyebrow,
+      .board-index {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .jump-links a {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .artboard {
+        border-color: var(--color-atomic-blue-90);
+        background: var(--color-static-white);
+      }
+
+      .site-header {
+        border-bottom-color: var(--color-atomic-blue-90);
+        background: var(--color-static-white);
+      }
+
+      .brand {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .brand-mark {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .main-nav a {
+        color: var(--color-label-alternative);
+      }
+
+      .main-nav a[aria-current="page"] {
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .site-header .button,
+      .site-header .icon-button {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .site-header .button.primary {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-20);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .button.primary {
+        border-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .site-header .button.primary {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-20);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .layout-hero {
+        background: var(--color-static-white);
+      }
+
+      .hero-copy h1 {
+        color: var(--color-label-strong);
+      }
+
+      .hero-copy p {
+        color: var(--color-label-alternative);
+      }
+
+      .hero-copy .eyebrow {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .hero-copy .button:not(.primary) {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .hero-panel .eyebrow {
+        color: var(--color-atomic-orange-60);
+      }
+
+      .panel-heading p {
+        color: var(--color-atomic-blue-90);
+      }
+
+      .stat {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .stat span {
+        color: var(--color-label-alternative);
+      }
+
+      .layout-features,
+      .screen-main,
+      .detail-stage,
+      .detail-content,
+      .states-main {
+        background: var(--color-static-white);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .site-footer {
+        border-top-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .footer-inner {
+        color: var(--color-static-white);
+      }
+
+      .filter-panel,
+      .detail-summary,
+      .states-main .state-card {
+        border-color: var(--color-atomic-blue-90);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .chip.active {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .menu-card:nth-child(even) {
+        border-top-color: var(--color-atomic-blue-30);
+      }
+
+      .preview-label {
+        border-bottom-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .token-note {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+    </style>
+    <style id="warriors-white-theme">
+      body {
+        background: var(--color-static-white);
+      }
+
+      .workspace-intro .eyebrow,
+      .board-index,
+      .hero-copy .eyebrow {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .jump-links a {
+        border-color: var(--color-atomic-blue-90);
+        color: var(--color-atomic-blue-30);
+      }
+
+      .artboard {
+        border-color: var(--color-atomic-blue-90);
+      }
+
+      .site-header {
+        border-bottom-color: var(--color-atomic-blue-90);
+        background: var(--color-static-white);
+      }
+
+      .brand {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .brand-mark {
+        color: var(--color-atomic-blue-20);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .main-nav a,
+      .main-nav a[aria-current="page"] {
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .main-nav a[aria-current="page"] {
+        color: var(--color-atomic-blue-30);
+        border-bottom-color: var(--color-atomic-orange-60);
+      }
+
+      .site-header .button,
+      .site-header .icon-button {
+        border-color: var(--color-atomic-blue-30);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .button.primary,
+      .segment.active,
+      .page-button.active {
+        border-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .site-header .button.primary {
+        border-color: var(--color-atomic-orange-60);
+        color: var(--color-atomic-blue-20);
+        background: var(--color-atomic-orange-60);
+      }
+
+      .layout-hero {
+        background: var(--color-static-white);
+      }
+
+      .hero-copy .button:not(.primary) {
+        border-color: var(--color-atomic-blue-30);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel {
+        border-color: var(--color-atomic-blue-90);
+        border-left-color: var(--color-atomic-orange-60);
+        color: var(--color-label-normal);
+        background: var(--color-static-white);
+      }
+
+      .hero-panel .eyebrow {
+        color: var(--color-atomic-blue-30);
+      }
+
+      .panel-heading p,
+      .stat span {
+        color: var(--color-label-alternative);
+      }
+
+      .stat {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .feature-card,
+      .menu-card,
+      .menu-card:nth-child(even),
+      .state-card,
+      .state-card.error-state {
+        border-top-color: var(--color-atomic-orange-60);
+      }
+
+      .feature-card .icon,
+      .state-icon {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .site-footer {
+        border-top-color: var(--color-atomic-blue-30);
+        color: var(--color-static-white);
+        background: var(--color-atomic-blue-30);
+      }
+
+      .footer-inner {
+        color: var(--color-static-white);
+      }
+
+      .filter-panel,
+      .detail-summary,
+      .states-main .state-card {
+        border-color: var(--color-atomic-blue-90);
+        background: var(--color-atomic-blue-99);
+      }
+
+      .chip.active {
+        border-color: var(--color-atomic-blue-30);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .preview-label {
+        border-bottom-color: var(--color-atomic-blue-90);
+        color: var(--color-atomic-blue-30);
+        background: var(--color-static-white);
+      }
+
+      .token-note {
+        color: var(--color-atomic-blue-30);
+        background: var(--color-atomic-orange-95);
+      }
+
+      .state-card.error-state {
+        border-top-color: var(--color-status-negative);
+      }
+
+      .state-card.error-state .state-icon {
+        color: var(--color-status-negative);
+        background: var(--color-background-negative);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="workspace-intro">
+        <div>
+          <span class="eyebrow">MENU STUDIO · STATIC HTML</span>
+          <h1>메뉴 관리 서비스 아트보드</h1>
+          <p>Montage 디자인 토큰만 사용한 레이아웃, 핵심 화면, 상태 설계</p>
+        </div>
+        <nav class="jump-links" aria-label="아트보드 바로가기">
+          <a href="#layout">01 레이아웃</a>
+          <a href="#list">02 메뉴 목록</a>
+          <a href="#detail">03 메뉴 상세</a>
+          <a href="#form">04 메뉴 폼</a>
+          <a href="#states">05 상태 모음</a>
+        </nav>
+      </header>
+
+      <section class="artboard-wrap" id="layout">
+        <header class="board-meta">
+          <div>
+            <span class="board-index">ARTBOARD 01</span>
+            <h2>공통 레이아웃</h2>
+          </div>
+          <p>헤더 · 로고 · 내비게이션 · 푸터</p>
+        </header>
+        <article class="artboard" aria-label="공통 레이아웃 목업">
+          <header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="#layout">
+                <span class="brand-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M4 12h10M4 17h7" />
+                  </svg>
+                </span>
+                Menu Studio
+              </a>
+              <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="#list" aria-current="page">메뉴</a>
+                <a href="#form">새 메뉴 등록</a>
+                <a href="#states">상태 가이드</a>
+              </nav>
+              <div class="header-actions">
+                <button class="icon-button" type="button" aria-label="검색">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-4-4" />
+                  </svg>
+                </button>
+                <a class="button primary small" href="#form">메뉴 등록</a>
+              </div>
+            </div>
+          </header>
+
+          <section class="layout-hero">
+            <div class="container hero-grid">
+              <div class="hero-copy">
+                <span class="eyebrow">오늘의 메뉴 운영</span>
+                <h1>메뉴를 더 빠르고 일관되게 관리하세요.</h1>
+                <p>
+                  메뉴 등록부터 가격 검색, 카테고리 분류, 판매 상태 관리까지 한곳에서
+                  확인할 수 있습니다.
+                </p>
+                <div class="button-row">
+                  <a class="button primary" href="#list">메뉴 둘러보기</a>
+                  <a class="button" href="#form">새 메뉴 등록</a>
+                </div>
+              </div>
+              <aside class="hero-panel" aria-label="운영 현황 미리보기">
+                <div class="panel-heading">
+                  <span class="eyebrow">운영 현황</span>
+                  <strong>오늘도 메뉴 운영이 순조로워요.</strong>
+                  <p>판매 상태와 카테고리를 확인하고 필요한 메뉴를 바로 관리하세요.</p>
+                </div>
+                <div class="stat-row">
+                  <div class="stat"><strong>42</strong><span>전체 메뉴</span></div>
+                  <div class="stat"><strong>36</strong><span>주문 가능</span></div>
+                  <div class="stat"><strong>12</strong><span>카테고리</span></div>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="layout-features">
+            <div class="container feature-grid">
+              <article class="feature-card">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 5h16v14H4zM8 9h8M8 13h5" />
+                  </svg>
+                </span>
+                <strong>한눈에 보는 메뉴</strong>
+                <p>카드 기반 목록에서 가격과 판매 상태를 빠르게 비교합니다.</p>
+              </article>
+              <article class="feature-card">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16M7 12h10M10 17h4" />
+                  </svg>
+                </span>
+                <strong>정교한 필터</strong>
+                <p>이름, 가격, 카테고리 조건을 조합해 원하는 메뉴를 찾습니다.</p>
+              </article>
+              <article class="feature-card">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </span>
+                <strong>안전한 변경</strong>
+                <p>입력 검증과 삭제 확인을 거쳐 메뉴 정보를 안전하게 관리합니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <footer class="site-footer">
+            <div class="container footer-inner">
+              <span>© Menu Studio</span>
+              <div class="footer-links"><a href="#layout">이용 안내</a><a href="#layout">운영 정책</a></div>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <section class="artboard-wrap" id="list">
+        <header class="board-meta">
+          <div>
+            <span class="board-index">ARTBOARD 02</span>
+            <h2>메뉴 목록</h2>
+          </div>
+          <p>카드 그리드 · 검색 · 가격 조건 · 카테고리 · 페이지네이션</p>
+        </header>
+        <article class="artboard" aria-label="메뉴 목록 화면 목업">
+          <header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="#layout"><span class="brand-mark">M</span>Menu Studio</a>
+              <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="#list" aria-current="page">메뉴</a>
+                <a href="#form">새 메뉴 등록</a>
+                <a href="#states">상태 가이드</a>
+              </nav>
+              <a class="button primary small" href="#form">메뉴 등록</a>
+            </div>
+          </header>
+
+          <div class="container screen-main">
+            <header class="page-title">
+              <div>
+                <h1>메뉴 목록</h1>
+                <p>판매 중인 메뉴를 찾고 관리하세요.</p>
+              </div>
+              <span class="badge">총 42개</span>
+            </header>
+
+            <form class="filter-panel">
+              <div class="field">
+                <label for="menu-search">메뉴 이름</label>
+                <div class="input-with-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" />
+                  </svg>
+                  <input id="menu-search" type="search" placeholder="메뉴 이름을 검색하세요" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="price-condition">가격 조건</label>
+                <select id="price-condition">
+                  <option>전체 가격</option>
+                  <option>10,000원 초과</option>
+                  <option>20,000원 초과</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="sort-condition">정렬</label>
+                <select id="sort-condition">
+                  <option>최신 등록순</option>
+                  <option>가격 낮은순</option>
+                  <option>가격 높은순</option>
+                </select>
+              </div>
+              <div class="filter-actions">
+                <button class="button primary" type="button">검색</button>
+              </div>
+            </form>
+
+            <div class="category-row" aria-label="카테고리 필터">
+              <button class="chip active" type="button">전체</button>
+              <button class="chip" type="button">한식</button>
+              <button class="chip" type="button">중식</button>
+              <button class="chip" type="button">일식</button>
+              <button class="chip" type="button">퓨전</button>
+              <button class="chip" type="button">음료</button>
+              <button class="chip" type="button">디저트</button>
+            </div>
+
+            <div class="section-heading">
+              <div><h2>전체 메뉴</h2><p>조건에 맞는 메뉴 42개</p></div>
+              <button class="button ghost small" type="button">필터 초기화</button>
+            </div>
+
+            <div class="menu-grid">
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">한식</span><span class="badge positive">주문 가능</span></div>
+                  <h3>소고기 미역국</h3><p>깊은 국물과 부드러운 소고기</p>
+                  <div class="price-row"><span class="price">12,000원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">퓨전</span><span class="badge positive">주문 가능</span></div>
+                  <h3>아보카도 샐러드</h3><p>신선한 채소와 담백한 드레싱</p>
+                  <div class="price-row"><span class="price">15,000원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">일식</span><span class="badge positive">주문 가능</span></div>
+                  <h3>냉모밀 정식</h3><p>시원한 육수와 바삭한 튀김</p>
+                  <div class="price-row"><span class="price">13,500원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">양식</span><span class="badge positive">주문 가능</span></div>
+                  <h3>트러플 크림 파스타</h3><p>향긋한 트러플과 진한 크림</p>
+                  <div class="price-row"><span class="price">18,000원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">디저트</span><span class="badge positive">주문 가능</span></div>
+                  <h3>딸기 생크림 케이크</h3><p>제철 딸기와 가벼운 생크림</p>
+                  <div class="price-row"><span class="price">8,500원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">중식</span><span class="badge negative">판매 중지</span></div>
+                  <h3>새우 딤섬</h3><p>탱글한 새우를 채운 수제 딤섬</p>
+                  <div class="price-row"><span class="price">11,000원</span><a href="#detail">상세보기 →</a></div>
+                </div>
+              </article>
+            </div>
+
+            <nav class="pagination" aria-label="페이지 이동">
+              <button class="page-button" type="button" aria-label="이전 페이지">←</button>
+              <button class="page-button active" type="button">1</button>
+              <button class="page-button" type="button">2</button>
+              <button class="page-button" type="button">3</button>
+              <button class="page-button" type="button" aria-label="다음 페이지">→</button>
+            </nav>
+          </div>
+        </article>
+      </section>
+
+      <section class="artboard-wrap" id="detail">
+        <header class="board-meta">
+          <div>
+            <span class="board-index">ARTBOARD 03</span>
+            <h2>메뉴 상세</h2>
+          </div>
+          <p>상세 정보 · 수정/삭제 액션 · 삭제 확인 모달</p>
+        </header>
+        <article class="artboard detail-stage" aria-label="메뉴 상세와 삭제 확인 화면 목업">
+          <header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="#layout"><span class="brand-mark">M</span>Menu Studio</a>
+              <nav class="main-nav" aria-label="주요 메뉴"><a href="#list" aria-current="page">메뉴</a><a href="#form">새 메뉴 등록</a></nav>
+              <a class="button small" href="#list">목록으로</a>
+            </div>
+          </header>
+
+          <div class="container detail-content">
+            <nav class="breadcrumb" aria-label="현재 위치"><span>메뉴 목록</span><span>›</span><strong>소고기 미역국</strong></nav>
+            <div class="detail-grid">
+              <div class="detail-copy">
+                <div class="inline-meta"><span class="badge">한식</span><span class="badge positive">주문 가능</span></div>
+                <div><h1>소고기 미역국</h1><p>깊게 우려낸 국물과 부드러운 소고기가 어우러진 든든한 한 끼입니다.</p></div>
+                <div class="button-row"><a class="button primary" href="#form">메뉴 수정</a><button class="button danger" type="button">메뉴 삭제</button></div>
+              </div>
+              <aside class="detail-summary">
+                <h2>메뉴 정보</h2>
+                <p>등록된 메뉴의 운영 정보를 확인하세요.</p>
+                <dl class="detail-list">
+                  <div><dt>메뉴 코드</dt><dd>#12</dd></div>
+                  <div><dt>판매 가격</dt><dd>12,000원</dd></div>
+                  <div><dt>카테고리</dt><dd>식사 · 한식</dd></div>
+                  <div><dt>주문 상태</dt><dd>주문 가능</dd></div>
+                </dl>
+              </aside>
+            </div>
+          </div>
+
+          <div class="confirm-layer" role="presentation">
+            <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="delete-title">
+              <div class="state-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 7h12M9 7V4h6v3M8 7l1 13h6l1-13" />
+                </svg>
+              </div>
+              <div><h2 id="delete-title">메뉴를 삭제할까요?</h2><p>‘소고기 미역국’을 삭제하면 되돌릴 수 없습니다.</p></div>
+              <div class="button-row"><button class="button" type="button">취소</button><button class="button danger" type="button">삭제</button></div>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section class="artboard-wrap" id="form">
+        <header class="board-meta">
+          <div>
+            <span class="board-index">ARTBOARD 04</span>
+            <h2>메뉴 폼</h2>
+          </div>
+          <p>등록·수정 공용 · 입력 검증 · 실시간 미리보기</p>
+        </header>
+        <article class="artboard" aria-label="메뉴 등록 수정 폼 목업">
+          <header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="#layout"><span class="brand-mark">M</span>Menu Studio</a>
+              <nav class="main-nav" aria-label="주요 메뉴"><a href="#list">메뉴</a><a href="#form" aria-current="page">새 메뉴 등록</a></nav>
+              <a class="button small" href="#list">취소</a>
+            </div>
+          </header>
+
+          <div class="container screen-main">
+            <header class="page-title">
+              <div><h1>새 메뉴 등록</h1><p>메뉴 정보를 입력하고 판매 상태를 설정하세요.</p></div>
+              <div class="token-note">필수 항목은 <span class="required">*</span>로 표시됩니다.</div>
+            </header>
+
+            <div class="form-layout">
+              <form class="form-card">
+                <div class="form-field">
+                  <label for="menu-name">메뉴 이름 <span class="required">*</span></label>
+                  <input id="menu-name" value="소고기 미역국" />
+                  <span class="field-message">고객에게 표시할 메뉴 이름을 입력하세요.</span>
+                </div>
+
+                <div class="field-grid">
+                  <div class="form-field invalid">
+                    <label for="menu-price">가격 <span class="required">*</span></label>
+                    <input id="menu-price" value="-12000" aria-invalid="true" />
+                    <span class="field-message error">가격은 0원보다 커야 합니다.</span>
+                  </div>
+                  <div class="form-field">
+                    <label for="menu-category">카테고리 <span class="required">*</span></label>
+                    <select id="menu-category"><option>한식</option><option>중식</option><option>일식</option><option>퓨전</option></select>
+                    <span class="field-message">하위 카테고리를 선택하세요.</span>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <span class="field-label">메뉴 설명</span>
+                  <textarea aria-label="메뉴 설명">깊게 우려낸 국물과 부드러운 소고기가 어우러진 든든한 한 끼입니다.</textarea>
+                  <span class="field-message">메뉴의 특징을 간결하게 설명하세요.</span>
+                </div>
+
+                <div class="form-field">
+                  <span class="field-label">주문 상태 <span class="required">*</span></span>
+                  <div class="segmented" role="group" aria-label="주문 상태">
+                    <button class="segment active" type="button">주문 가능 (Y)</button>
+                    <button class="segment" type="button">판매 중지 (N)</button>
+                  </div>
+                </div>
+
+                <div class="form-actions"><button class="button" type="button">취소</button><button class="button primary" type="button">메뉴 등록</button></div>
+              </form>
+
+              <aside class="preview-card" aria-label="메뉴 카드 미리보기">
+                <div class="preview-label">카드 미리보기</div>
+                <div class="card-copy">
+                  <div class="inline-meta"><span class="badge">한식</span><span class="badge positive">주문 가능</span></div>
+                  <h3>소고기 미역국</h3>
+                  <p>깊게 우려낸 국물과 부드러운 소고기가 어우러진 든든한 한 끼입니다.</p>
+                  <div class="price-row"><span class="price">가격을 확인해 주세요</span></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="artboard-wrap" id="states">
+        <header class="board-meta">
+          <div>
+            <span class="board-index">ARTBOARD 05</span>
+            <h2>상태 모음</h2>
+          </div>
+          <p>빈 상태 · 오류 · 로딩 스켈레톤</p>
+        </header>
+        <article class="artboard" aria-label="화면 상태 목업">
+          <header class="site-header">
+            <div class="container header-inner">
+              <a class="brand" href="#layout"><span class="brand-mark">M</span>Menu Studio</a>
+              <nav class="main-nav" aria-label="주요 메뉴"><a href="#list">메뉴</a><a href="#states" aria-current="page">상태 가이드</a></nav>
+            </div>
+          </header>
+
+          <div class="states-main">
+            <div class="container">
+              <header class="page-title"><div><h1>화면 상태</h1><p>데이터 상황에 따라 일관된 피드백을 제공합니다.</p></div></header>
+              <div class="state-grid">
+                <section class="state-card">
+                  <span class="state-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 6h16v12H4zM8 10h8M8 14h5" />
+                    </svg>
+                  </span>
+                  <div><h3>메뉴가 없습니다</h3><p>조건에 맞는 메뉴가 아직 없습니다.<br />필터를 바꾸거나 새 메뉴를 등록해 보세요.</p></div>
+                  <button class="button primary small" type="button">메뉴 등록</button>
+                </section>
+
+                <section class="state-card error-state">
+                  <span class="state-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="9" /><path d="M12 7v6M12 17h.01" />
+                    </svg>
+                  </span>
+                  <div><h3>메뉴를 불러오지 못했습니다</h3><p>서버 연결 상태를 확인한 뒤<br />다시 시도해 주세요.</p></div>
+                  <button class="button small" type="button">다시 시도</button>
+                </section>
+
+                <section class="state-card skeleton-card" aria-label="메뉴를 불러오는 중">
+                  <div class="skeleton-row">
+                    <div class="skeleton line short"></div>
+                    <div class="skeleton line"></div>
+                    <div class="skeleton line"></div>
+                    <div class="skeleton line short"></div>
+                    <div class="skeleton line"></div>
+                  </div>
+                  <span class="field-message">메뉴 정보를 불러오고 있습니다.</span>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
